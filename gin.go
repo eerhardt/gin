@@ -378,7 +378,7 @@ func (engine *Engine) Run(addr ...string) (err error) {
 	}
 
 	address := resolveAddress(addr)
-	debugPrint("Listening and serving HTTP on %s\n", address)
+	debugPrint("[%s] Listening and serving HTTP on %s\n", time.Now().Format(time.RFC3339Nano), address)
 	err = http.ListenAndServe(address, engine.Handler())
 	return
 }
